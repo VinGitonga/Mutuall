@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import "react-native-gesture-handler";
 import useFonts from "./hooks/useFonts";
@@ -26,7 +26,7 @@ const App = () => {
         <NavigationContainer>
             <Navigator />
         </NavigationContainer>
-    )
-
-
+    );
 }
+
+export default App;
