@@ -1,8 +1,8 @@
 import { Text, StyleSheet } from "react-native"
 
-const HeaderText = ({ text }) => {
+const HeaderText = ({ text, additionalStyles }) => {
     return (
-        <Text style={styles.headerText}>{text}</Text>
+        <Text style={[styles.headerText, additionalStyles]}>{text}</Text>
     );
 }
 

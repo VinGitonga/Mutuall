@@ -1,36 +1,51 @@
-import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
-import tw from "twrnc"
-import AppButton from '../components/Buttons';
-import HeaderText from '../components/Header';
+import {
+    View,
+    Text,
+    Image,
+    StyleSheet,
+    Dimensions,
+    TouchableOpacity,
+} from "react-native";
+import tw from "twrnc";
+import AppButton from "../components/Buttons";
+import HeaderText from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
+
 const height = Dimensions.get("screen").height;
 
-
 const Landing = () => {
+    const navigation = useNavigation();
     return (
-        <View style={styles.container} >
+        <View style={styles.container}>
             {/* Image section */}
-            <View style={tw`items-center justify-center`} >
-                <Image source={require("../assets/images/img1.jpg")} style={styles.img} />
+            <View style={tw`items-center justify-center`}>
+                <Image
+                    source={require("../assets/images/img1.jpg")}
+                    style={styles.img}
+                />
             </View>
             {/* Text Section */}
             <View style={styles.textSection}>
                 {/* Header Text */}
                 <HeaderText text={"Let's get started."} />
                 <Text style={styles.text1}>
-                    Never a better time than now to start thinking of
-                    managing all your finances with ease.
+                    Never a better time than now to start thinking of managing all your
+                    finances with ease.
                 </Text>
             </View>
             {/* Button Section */}
             <View style={styles.btns}>
-                <AppButton text={"Create an account"} />
-                <TouchableOpacity>
+                <AppButton
+                    text={"Create an account"}
+                    onPress={() => navigation.navigate("Signup")}
+                />
+                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                     <Text style={styles.loginText}>Login to Account</Text>
                 </TouchableOpacity>
             </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -48,7 +63,7 @@ const styles = StyleSheet.create({
     textSection: {
         marginVertical: height * 0.04,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     text1: {
         fontSize: 18,
@@ -67,8 +82,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins",
         marginTop: 10,
         fontSize: 18,
-    }
-
-})
+    },
+});
 
 export default Landing;

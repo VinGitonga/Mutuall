@@ -3,10 +3,10 @@ import { TouchableOpacity, View, Text, StyleSheet, Dimensions } from "react-nati
 const height = Dimensions.get("screen").height;
 const width = Dimensions.get("screen").width;
 
-const AppButton = ({ text }) => {
+const AppButton = ({ text, onPress, containerStyle }) => {
     return (
-        <TouchableOpacity>
-            <View style={styles.btn} >
+        <TouchableOpacity onPress={onPress}>
+            <View style={[styles.btn, containerStyle]} >
                 <Text style={styles.btnText} >{text}</Text>
             </View>
         </TouchableOpacity>
